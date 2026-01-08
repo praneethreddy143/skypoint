@@ -40,61 +40,104 @@ src/
 
 ## 🎨 Design Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Purple/Pink Gradient Theme**: Consistent color scheme across all pages
+- **Glassmorphism**: Semi-transparent panels with backdrop blur
+- **Animated Backgrounds**: Floating gradient orbs and particles
+- **Smooth Transitions**: Page transitions and hover effects
+- **Card-based Layout**: Modern product cards with hover animations
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone <your-repo-url>
+
+# Navigate to project directory
+cd test-test
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The app will be available at `http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Build for Production
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
+npm run preview
 ```
+
+## 🛠️ Tech Stack
+
+- **React 19.2.0** - UI library with latest features
+- **TypeScript 5.9.3** - Type safety and better DX
+- **Vite 7.2.4** - Lightning-fast build tool
+- **Tailwind CSS v4** - Utility-first CSS framework
+- **Framer Motion** - Animation library
+- **DummyJSON API** - Product data source
+
+## 📦 Key Components
+
+### Header
+Reusable navigation header with logo, search, wishlist, and cart icons. Supports back navigation for detail pages.
+
+### BackgroundAnimation
+Animated gradient orbs and floating particles for visual appeal across all pages.
+
+### ProductsTable (Main Catalog)
+- Sidebar with category filters, price sliders, and rating filters
+- Product grid with search and sort functionality
+- Promotional banner
+- Real-time filtering without page reload
+
+### ProductCard
+Reusable card component displaying:
+- Product image with discount badge
+- Title, rating, and price
+- Stock status indicator
+- Hover animations
+
+### ProductDetail
+Comprehensive product view with:
+- Image gallery with thumbnails
+- Size selection
+- Add to cart functionality
+- Expandable description and shipping info
+- Reviews and ratings section
+- Related products carousel
+
+## 🎯 Features in Detail
+
+### Filtering System
+- **Category**: Radio button selection
+- **Price Range**: Dual sliders (min/max)
+- **Rating**: Minimum rating filter
+- **Stock Status**: In stock / Low stock / Out of stock
+- **Search**: Real-time text search
+- **Sort**: By popularity, price, or rating
+
+### Performance Optimizations
+- Removed heavy animations from product grid for instant rendering
+- Used CSS transitions instead of Framer Motion for hover effects
+- Memoized filtered products with React.useMemo
+- Optimized component re-renders
+
+## 📝 License
+
+MIT License - feel free to use this project for learning or commercial purposes.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
